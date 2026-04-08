@@ -22,12 +22,19 @@ function StarApp() {
       {/* Star map — takes majority of space */}
       <div
         className="relative flex-1 min-w-0"
-        style={{ background: 'radial-gradient(ellipse at center, #0a1628 0%, #050d1a 50%, #020409 100%)' }}
+        style={{
+          background: [
+            'radial-gradient(ellipse 80% 60% at 30% 40%, rgba(13,52,74,0.35) 0%, transparent 65%)',
+            'radial-gradient(ellipse 60% 50% at 75% 65%, rgba(30,15,60,0.25) 0%, transparent 60%)',
+            'radial-gradient(ellipse at center, #0a1628 0%, #050d1a 55%, #020409 100%)',
+          ].join(', '),
+        }}
       >
         <SkyMap
           selectedConstellation={selectedConstellation}
           unlockedConstellations={unlockedConstellations}
           exploredConstellations={exploredConstellations}
+          highlightedConstellations={state.highlightedConstellations}
           onConstellationSelect={selectConstellation}
         />
         <ProgressIndicator exploredCount={exploredConstellations.length} />

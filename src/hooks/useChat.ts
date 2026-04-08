@@ -2,6 +2,7 @@ import { useCallback } from 'react'
 import { useAppContext } from '../context/AppContext'
 import type { ChatMessage } from '../types'
 import { CONSTELLATIONS_BY_ID } from '../data/constellations'
+import { parseConstellationMentions } from '../utils/parseConstellationMentions'
 
 function makeId() {
   return Math.random().toString(36).slice(2)
@@ -43,6 +44,7 @@ export function useChat() {
     }
     dispatch({ type: 'ADD_MESSAGE', payload: assistantMsg })
     dispatch({ type: 'SET_STREAMING', payload: true })
+    dispatch({ type: 'SET_HIGHLIGHTED', payload: [] })
 
     // Build messages array from current state (excluding the empty assistant placeholder)
     const historyMessages = state.messages
@@ -85,6 +87,7 @@ export function useChat() {
 
       const reader = response.body.getReader()
       const decoder = new TextDecoder()
+      let accumulatedContent = ''
 
       while (true) {
         const { done, value } = await reader.read()
@@ -100,12 +103,18 @@ export function useChat() {
           try {
             const parsed = JSON.parse(data)
             if (parsed.token) {
+              accumulatedContent += parsed.token
               dispatch({ type: 'APPEND_STREAM_TOKEN', payload: { id: assistantId, token: parsed.token } })
             }
           } catch {
             // ignore malformed chunks
           }
         }
+      }
+
+      const mentioned = parseConstellationMentions(accumulatedContent)
+      if (mentioned.length > 0) {
+        dispatch({ type: 'SET_HIGHLIGHTED', payload: mentioned })
       }
 
       // After streaming, if this was for a constellation, mark it explored

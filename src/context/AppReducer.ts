@@ -5,6 +5,7 @@ export const initialState: AppState = {
   selectedConstellation: null,
   exploredConstellations: [],
   unlockedConstellations: [],
+  highlightedConstellations: [],
   messages: [],
   isStreaming: false,
   userFamiliarityLevel: 'none',
@@ -61,6 +62,9 @@ export function appReducer(state: AppState, action: AppAction): AppState {
         },
       }
     }
+
+    case 'SET_HIGHLIGHTED':
+      return { ...state, highlightedConstellations: action.payload }
 
     default:
       return state

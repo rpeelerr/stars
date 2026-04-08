@@ -52,6 +52,7 @@ export interface AppState {
   selectedConstellation: string | null
   exploredConstellations: string[]           // ids where chat has occurred
   unlockedConstellations: string[]           // ids with visible lines/art on map
+  highlightedConstellations: string[]        // ids mentioned in latest AI message
   messages: ChatMessage[]
   isStreaming: boolean
   userFamiliarityLevel: FamiliarityLevel
@@ -68,3 +69,4 @@ export type AppAction =
   | { type: 'SET_STREAMING'; payload: boolean }
   | { type: 'SET_FAMILIARITY'; payload: FamiliarityLevel }
   | { type: 'INCREMENT_ENGAGEMENT'; payload: string }
+  | { type: 'SET_HIGHLIGHTED'; payload: string[] }

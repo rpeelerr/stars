@@ -23,11 +23,23 @@ export function TutorPanel({ quizReady, onStartQuiz, onDismissQuiz }: TutorPanel
   }
 
   return (
-    <div className="flex flex-col h-full bg-space-900/70 border-l border-star-blue/10">
+    <div
+      className="flex flex-col h-full border-l border-star-blue/10"
+      style={{
+        background: 'linear-gradient(180deg, rgba(5,13,26,0.85) 0%, rgba(2,4,9,0.92) 100%)',
+        backdropFilter: 'blur(8px)',
+      }}
+    >
       {/* Header */}
-      <div className="flex-shrink-0 px-4 py-3 border-b border-star-blue/10">
+      <div
+        className="flex-shrink-0 px-4 py-3 border-b border-star-blue/10"
+        style={{ background: 'rgba(10,22,40,0.4)' }}
+      >
         <div className="flex items-center gap-2">
-          <span className="text-star-gold text-lg">✦</span>
+          <span
+            className="text-star-gold text-lg"
+            style={{ animation: 'gold-glow 4s ease-in-out infinite' }}
+          >✦</span>
           <div>
             <h2 className="text-star-white/90 text-sm font-serif font-semibold">
               Guide of the Stars
@@ -81,10 +93,22 @@ export function TutorPanel({ quizReady, onStartQuiz, onDismissQuiz }: TutorPanel
       {messages.length === 0 && (
         <div className="flex-1 flex items-center justify-center p-8">
           <div className="text-center">
-            <div className="text-4xl mb-4">🌌</div>
+            <div
+              className="text-4xl mb-4"
+              style={{ animation: 'icon-float 5s ease-in-out infinite, gold-glow 4s ease-in-out infinite' }}
+            >✦</div>
             <p className="text-star-dim font-serif italic text-sm leading-relaxed">
               Click on a constellation in the star map to begin your journey through the night sky.
             </p>
+            <div className="mt-4 flex justify-center gap-3 opacity-30">
+              {['·', '✦', '·', '✦', '·'].map((c, i) => (
+                <span
+                  key={i}
+                  className="text-star-blue text-xs"
+                  style={{ animation: `twinkle ${2 + i * 0.4}s ease-in-out ${i * 0.5}s infinite` }}
+                >{c}</span>
+              ))}
+            </div>
           </div>
         </div>
       )}
