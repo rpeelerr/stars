@@ -14,8 +14,8 @@ export const STARS: Star[] = [
   { id: 6, ra: 13.399, dec: 54.925, mag: 2.23, name: 'Mizar', bayer: 'ζ UMa' },
   { id: 7, ra: 13.792, dec: 49.313, mag: 1.86, name: 'Alkaid', bayer: 'η UMa' },
   { id: 8, ra: 13.420, dec: 54.988, mag: 3.95, name: 'Alcor', bayer: '80 UMa' },
-  { id: 9, ra: 9.849,  dec: 59.039, mag: 3.45, name: 'Talitha', bayer: 'ι UMa' },
-  { id: 10, ra: 9.525, dec: 51.677, mag: 3.01, name: 'Tania Borealis', bayer: 'λ UMa' },
+  { id: 9, ra: 8.987,  dec: 48.042, mag: 3.45, name: 'Talitha', bayer: 'ι UMa' },
+  { id: 10, ra: 10.285, dec: 42.915, mag: 3.01, name: 'Tania Borealis', bayer: 'λ UMa' },
   { id: 11, ra: 10.372, dec: 41.499, mag: 3.05, name: 'Tania Australis', bayer: 'μ UMa' },
 
   // ── URSA MINOR ───────────────────────────────────────────────────────────────
@@ -25,17 +25,17 @@ export const STARS: Star[] = [
   { id: 23, ra: 17.537, dec: 86.587, mag: 4.35, bayer: 'δ UMi' },
   { id: 24, ra: 16.766, dec: 82.037, mag: 4.23, bayer: 'ε UMi' },
   { id: 25, ra: 15.734, dec: 77.795, mag: 4.31, bayer: 'ζ UMi' },
-  { id: 26, ra: 15.154, dec: 74.156, mag: 5.02, name: 'Anwar al Farkadain', bayer: 'η UMi' },
+  { id: 26, ra: 16.292, dec: 75.755, mag: 5.02, name: 'Anwar al Farkadain', bayer: 'η UMi' },
 
   // ── LEO ─────────────────────────────────────────────────────────────────────
   { id: 40, ra: 10.139, dec: 11.967, mag: 1.35, name: 'Regulus', bayer: 'α Leo' },
-  { id: 41, ra: 11.235, dec: 20.524, mag: 2.14, name: 'Denebola', bayer: 'β Leo' },
+  { id: 41, ra: 11.818, dec: 14.573, mag: 2.14, name: 'Denebola', bayer: 'β Leo' },
   { id: 42, ra: 10.333, dec: 19.842, mag: 2.01, name: 'Algieba', bayer: 'γ Leo' },
-  { id: 43, ra: 11.235, dec: 14.572, mag: 2.56, name: 'Zosma', bayer: 'δ Leo' },
-  { id: 44, ra: 9.764,  dec: 23.774, mag: 3.88, name: 'Rasalas', bayer: 'μ Leo' },
-  { id: 45, ra: 9.879,  dec: 26.007, mag: 3.44, name: 'Adhafera', bayer: 'ζ Leo' },
+  { id: 43, ra: 11.235, dec: 20.524, mag: 2.56, name: 'Zosma', bayer: 'δ Leo' },
+  { id: 44, ra: 9.879,  dec: 26.007, mag: 3.88, name: 'Rasalas', bayer: 'μ Leo' },
+  { id: 45, ra: 10.167, dec: 23.417, mag: 3.44, name: 'Adhafera', bayer: 'ζ Leo' },
   { id: 46, ra: 10.122, dec: 16.763, mag: 3.52, bayer: 'η Leo' },
-  { id: 47, ra: 11.818, dec: 15.430, mag: 3.33, name: 'Chertan', bayer: 'θ Leo' },
+  { id: 47, ra: 11.237, dec: 15.430, mag: 3.33, name: 'Chertan', bayer: 'θ Leo' },
 
   // ── CASSIOPEIA ───────────────────────────────────────────────────────────────
   { id: 60, ra: 0.676,  dec: 56.537, mag: 2.24, name: 'Schedar', bayer: 'α Cas' },
@@ -47,12 +47,12 @@ export const STARS: Star[] = [
   // ── GEMINI ──────────────────────────────────────────────────────────────────
   { id: 80, ra: 7.755,  dec: 28.026, mag: 1.14, name: 'Pollux', bayer: 'β Gem' },
   { id: 81, ra: 7.577,  dec: 31.888, mag: 1.58, name: 'Castor', bayer: 'α Gem' },
-  { id: 82, ra: 6.483,  dec: 20.212, mag: 3.53, name: 'Alhena', bayer: 'γ Gem' },
+  { id: 82, ra: 6.629,  dec: 16.399, mag: 1.93, name: 'Alhena', bayer: 'γ Gem' },
   { id: 83, ra: 7.336,  dec: 21.982, mag: 3.60, name: 'Wasat', bayer: 'δ Gem' },
   { id: 84, ra: 6.732,  dec: 25.131, mag: 2.98, name: 'Mebsuda', bayer: 'ε Gem' },
-  { id: 85, ra: 6.628,  dec: 16.399, mag: 2.87, name: 'Tejat Posterior', bayer: 'μ Gem' },
+  { id: 85, ra: 6.383,  dec: 22.513, mag: 2.87, name: 'Tejat Posterior', bayer: 'μ Gem' },
   { id: 86, ra: 7.068,  dec: 20.570, mag: 3.79, name: 'Mekbuda', bayer: 'ζ Gem' },
-  { id: 87, ra: 7.740,  dec: 24.398, mag: 3.28, name: 'Propus', bayer: 'η Gem' },
+  { id: 87, ra: 6.248,  dec: 22.507, mag: 3.28, name: 'Propus', bayer: 'η Gem' },
 
   // ── ORION ───────────────────────────────────────────────────────────────────
   { id: 100, ra: 5.919, dec: 7.407,  mag: 0.45, name: 'Betelgeuse', bayer: 'α Ori' },
@@ -70,7 +70,7 @@ export const STARS: Star[] = [
   { id: 122, ra: 6.379, dec: -17.956, mag: 3.02, name: 'Mirzam', bayer: 'β CMa' },
   { id: 123, ra: 7.140, dec: -26.393, mag: 3.78, name: 'Wezen', bayer: 'δ CMa' },
   { id: 124, ra: 7.402, dec: -29.303, mag: 4.12, name: 'Aludra', bayer: 'η CMa' },
-  { id: 125, ra: 6.933, dec: -17.054, mag: 4.11, bayer: 'ζ CMa' },
+  { id: 125, ra: 6.338, dec: -18.229, mag: 3.02, bayer: 'ζ CMa' },
 
   // ── CANIS MINOR ─────────────────────────────────────────────────────────────
   { id: 140, ra: 7.655, dec: 5.225,  mag: 0.38, name: 'Procyon', bayer: 'α CMi' },
@@ -96,10 +96,10 @@ export const STARS: Star[] = [
   { id: 200, ra: 14.261, dec: 19.182, mag: -0.05, name: 'Arcturus', bayer: 'α Boo' },
   { id: 201, ra: 15.032, dec: 40.391, mag: 3.58,  name: 'Nekkar', bayer: 'β Boo' },
   { id: 202, ra: 14.530, dec: 38.308, mag: 3.04,  name: 'Seginus', bayer: 'γ Boo' },
-  { id: 203, ra: 15.258, dec: 33.315, mag: 3.47,  name: 'Izar', bayer: 'ε Boo' },
-  { id: 204, ra: 14.749, dec: 27.074, mag: 3.48,  name: 'Muphrid', bayer: 'η Boo' },
-  { id: 205, ra: 14.686, dec: 13.728, mag: 4.05,  bayer: 'δ Boo' },
-  { id: 206, ra: 15.033, dec: 47.655, mag: 4.18,  name: 'Alkalurops', bayer: 'μ Boo' },
+  { id: 203, ra: 14.750, dec: 27.074, mag: 2.37,  name: 'Izar', bayer: 'ε Boo' },
+  { id: 204, ra: 13.912, dec: 18.397, mag: 2.68,  name: 'Muphrid', bayer: 'η Boo' },
+  { id: 205, ra: 15.258, dec: 33.316, mag: 3.47,  bayer: 'δ Boo' },
+  { id: 206, ra: 15.408, dec: 37.377, mag: 4.31,  name: 'Alkalurops', bayer: 'μ Boo' },
 
   // ── CORVUS ──────────────────────────────────────────────────────────────────
   { id: 220, ra: 12.169, dec: -24.729, mag: 2.59, name: 'Gienah', bayer: 'γ Crv' },
@@ -111,27 +111,27 @@ export const STARS: Star[] = [
   // ── AURIGA ──────────────────────────────────────────────────────────────────
   { id: 240, ra: 5.278,  dec: 45.998, mag: 0.08, name: 'Capella', bayer: 'α Aur' },
   { id: 241, ra: 5.992,  dec: 44.947, mag: 1.90, name: 'Menkalinan', bayer: 'β Aur' },
-  { id: 242, ra: 5.036,  dec: 43.823, mag: 2.65, name: 'Mahasim', bayer: 'θ Aur' },
+  { id: 242, ra: 5.995,  dec: 37.21,  mag: 2.65, name: 'Mahasim', bayer: 'θ Aur' },
   { id: 243, ra: 4.949,  dec: 33.166, mag: 2.99, name: 'Hassaleh', bayer: 'ι Aur' },
-  { id: 244, ra: 5.108,  dec: 41.076, mag: 3.72, name: 'Almaaz', bayer: 'ε Aur' },
+  { id: 244, ra: 5.033,  dec: 43.823, mag: 3.72, name: 'Almaaz', bayer: 'ε Aur' },
 
   // ── PERSEUS ──────────────────────────────────────────────────────────────────
   { id: 260, ra: 3.405,  dec: 49.862, mag: 1.80, name: 'Mirfak', bayer: 'α Per' },
   { id: 261, ra: 3.136,  dec: 40.956, mag: 2.12, name: 'Algol', bayer: 'β Per' },
   { id: 262, ra: 3.715,  dec: 47.788, mag: 2.85, bayer: 'δ Per' },
-  { id: 263, ra: 3.964,  dec: 40.010, mag: 2.90, name: 'Menkib', bayer: 'ξ Per' },
-  { id: 264, ra: 3.453,  dec: 47.985, mag: 2.93, bayer: 'γ Per' },
+  { id: 263, ra: 3.983,  dec: 35.791, mag: 2.90, name: 'Menkib', bayer: 'ξ Per' },
+  { id: 264, ra: 3.083,  dec: 53.507, mag: 2.93, bayer: 'γ Per' },
   { id: 265, ra: 2.845,  dec: 55.896, mag: 3.77, bayer: 'η Per' },
 
   // ── HYDRA ───────────────────────────────────────────────────────────────────
-  { id: 280, ra: 9.460,  dec: -8.659, mag: 1.98, name: 'Alphard', bayer: 'α Hya' },
-  { id: 281, ra: 8.923,  dec: 5.945,  mag: 3.11, bayer: 'β Hya' },
-  { id: 282, ra: 9.858,  dec: -14.846,mag: 3.00, bayer: 'γ Hya' },
-  { id: 283, ra: 11.882, dec: -33.908,mag: 3.11, bayer: 'ν Hya' },
-  { id: 284, ra: 10.827, dec: -16.194,mag: 3.54, bayer: 'ξ Hya' },
-  { id: 285, ra: 14.106, dec: -26.682,mag: 3.27, bayer: 'π Hya' },
-  { id: 286, ra: 8.628,  dec: 3.341,  mag: 3.83, bayer: 'ε Hya' },
-  { id: 287, ra: 8.923,  dec: 5.945,  mag: 3.11, bayer: 'ζ Hya' },
+  { id: 280, ra: 9.460,  dec: -8.659,  mag: 1.98, name: 'Alphard', bayer: 'α Hya' },
+  { id: 281, ra: 11.882, dec: -33.908, mag: 3.11, bayer: 'β Hya' },
+  { id: 282, ra: 13.315, dec: -23.171, mag: 3.00, bayer: 'γ Hya' },
+  { id: 283, ra: 11.550, dec: -31.858, mag: 3.11, bayer: 'ξ Hya' },
+  { id: 284, ra: 10.827, dec: -16.194, mag: 3.54, bayer: 'ν Hya' },
+  { id: 285, ra: 14.106, dec: -26.682, mag: 3.27, bayer: 'π Hya' },
+  { id: 286, ra: 8.780,  dec: 6.419,   mag: 3.38, bayer: 'ε Hya' },
+  { id: 287, ra: 9.151,  dec: 2.314,   mag: 3.11, bayer: 'ζ Hya' },
 ]
 
 export const STARS_BY_ID: Record<number, Star> = Object.fromEntries(

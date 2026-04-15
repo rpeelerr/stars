@@ -41,15 +41,28 @@ export function ConstellationArt({
   const filename = constellation.id.replace(/_/g, '-')
   const opacity = isSelected ? 0.30 : 0.14
 
+  // Per-constellation art overrides
+  const rotationDeg = constellation.id === 'hydra' ? 35
+    : constellation.id === 'leo' ? 40
+    : constellation.id === 'gemini' ? -40
+    : 0
+  const sizeScale = constellation.id === 'hydra' ? 0.675 : 1
+  const displaySize = size * sizeScale
+
+  const transform = rotationDeg !== 0
+    ? `rotate(${rotationDeg}, ${cx}, ${cy})`
+    : undefined
+
   return (
     <image
       href={`/constellations/${filename}.png`}
-      x={cx - size / 2}
-      y={cy - size / 2}
-      width={size}
-      height={size}
+      x={cx - displaySize / 2}
+      y={cy - displaySize / 2}
+      width={displaySize}
+      height={displaySize}
       opacity={opacity}
       preserveAspectRatio="xMidYMid meet"
+      transform={transform}
       style={{
         mixBlendMode: 'screen',
         transition: 'opacity 0.5s ease',

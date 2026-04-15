@@ -26,7 +26,7 @@ export function projectStar(ra: number, dec: number, width: number, height: numb
   const x = k * Math.cos(phi) * Math.sin(lambda - lambda0)
   const y = k * (Math.cos(phi0) * Math.sin(phi) - Math.sin(phi0) * Math.cos(phi) * Math.cos(lambda - lambda0))
 
-  return [width / 2 + scale * x, height / 2 - scale * y]
+  return [width / 2 - scale * x, height / 2 - scale * y]
 }
 
 // Star radius based on magnitude (lower mag = bigger/brighter)

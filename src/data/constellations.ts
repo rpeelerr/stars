@@ -49,8 +49,10 @@ export const CONSTELLATIONS: Constellation[] = [
     altNames: ['Little Dipper', 'Little Bear'],
     stars: [20, 21, 22, 23, 24, 25, 26],
     lines: [
+      // Handle: Polaris → δ → ε → ζ
       { from: 20, to: 23 }, { from: 23, to: 24 }, { from: 24, to: 25 },
-      { from: 25, to: 21 }, { from: 21, to: 26 }, { from: 26, to: 22 }, { from: 22, to: 25 },
+      // Bowl (IAU order): ζ → η → γ (Pherkad) → β (Kochab) → ζ
+      { from: 25, to: 26 }, { from: 26, to: 22 }, { from: 22, to: 21 }, { from: 21, to: 25 },
     ],
     centerRa: 15.0, centerDec: 78.0,
     difficulty: 1,
@@ -89,10 +91,11 @@ export const CONSTELLATIONS: Constellation[] = [
     altNames: ['The Lion', 'Lion'],
     stars: [40, 41, 42, 43, 44, 45, 46, 47],
     lines: [
-      // Sickle (backwards question mark): Regulus up through the curve
-      { from: 40, to: 46 }, { from: 46, to: 42 }, { from: 42, to: 45 }, { from: 45, to: 44 },
-      // Body to tail
-      { from: 42, to: 43 }, { from: 43, to: 47 }, { from: 47, to: 41 },
+      // Body loop (IAU standard): Denebola → Chertan → Regulus → η → Algieba → Zosma → Denebola
+      { from: 41, to: 47 }, { from: 47, to: 40 }, { from: 40, to: 46 }, { from: 46, to: 42 },
+      { from: 42, to: 43 }, { from: 43, to: 41 },
+      // Sickle spur from Algieba: Algieba → Adhafera → Rasalas
+      { from: 42, to: 45 }, { from: 45, to: 44 },
     ],
     centerRa: 10.5, centerDec: 18.0,
     difficulty: 1,
@@ -160,9 +163,12 @@ export const CONSTELLATIONS: Constellation[] = [
     altNames: ['The Twins', 'Castor and Pollux'],
     stars: [80, 81, 82, 83, 84, 85, 86, 87],
     lines: [
-      { from: 81, to: 84 }, { from: 84, to: 82 }, { from: 82, to: 85 },
-      { from: 80, to: 83 }, { from: 83, to: 86 }, { from: 86, to: 85 },
+      // Head connection
       { from: 81, to: 80 },
+      // Castor's body (west leg): Castor → Mebsuda → Tejat → Propus
+      { from: 81, to: 84 }, { from: 84, to: 85 }, { from: 85, to: 87 },
+      // Pollux's body (east leg): Pollux → Wasat → Mekbuda → Alhena
+      { from: 80, to: 83 }, { from: 83, to: 86 }, { from: 86, to: 82 },
     ],
     centerRa: 7.1, centerDec: 23.0,
     difficulty: 1,
@@ -369,9 +375,14 @@ export const CONSTELLATIONS: Constellation[] = [
     altNames: ['The Herdsman', 'The Bear Driver'],
     stars: [200, 201, 202, 203, 204, 205, 206],
     lines: [
-      { from: 200, to: 204 }, { from: 204, to: 202 }, { from: 202, to: 203 },
-      { from: 203, to: 201 }, { from: 201, to: 206 },
-      { from: 200, to: 205 }, { from: 205, to: 202 },
+      // Kite right spine: Arcturus → Izar → δ → Nekkar
+      { from: 200, to: 203 }, { from: 203, to: 205 }, { from: 205, to: 201 },
+      // Kite left side: Nekkar → Seginus → Arcturus
+      { from: 201, to: 202 }, { from: 202, to: 200 },
+      // Bottom spur: Arcturus → Muphrid
+      { from: 200, to: 204 },
+      // Right outer branch: Nekkar → Alkalurops
+      { from: 201, to: 206 },
     ],
     centerRa: 14.7, centerDec: 30.0,
     difficulty: 2,
@@ -435,10 +446,10 @@ export const CONSTELLATIONS: Constellation[] = [
     altNames: ['The Charioteer', 'The Wagoner'],
     stars: [240, 241, 242, 243, 244],
     lines: [
-      { from: 240, to: 241 }, { from: 241, to: 242 }, { from: 242, to: 244 },
-      { from: 244, to: 243 }, { from: 243, to: 240 },
+      { from: 240, to: 244 }, { from: 244, to: 243 }, { from: 243, to: 242 },
+      { from: 242, to: 241 }, { from: 241, to: 240 },
     ],
-    centerRa: 5.5, centerDec: 42.0,
+    centerRa: 5.5, centerDec: 39.5,
     difficulty: 2,
     mythology: [
       {
@@ -470,8 +481,11 @@ export const CONSTELLATIONS: Constellation[] = [
     altNames: ['The Hero'],
     stars: [260, 261, 262, 263, 264, 265],
     lines: [
-      { from: 265, to: 260 }, { from: 260, to: 264 }, { from: 264, to: 262 },
-      { from: 262, to: 263 }, { from: 260, to: 261 }, { from: 261, to: 263 },
+      // Main chain (N to S): η → γ → Mirfak → δ → Menkib
+      { from: 265, to: 264 }, { from: 264, to: 260 }, { from: 260, to: 262 },
+      { from: 262, to: 263 },
+      // Branch: Mirfak → Algol
+      { from: 260, to: 261 },
     ],
     centerRa: 3.5, centerDec: 47.0,
     difficulty: 2,
@@ -500,8 +514,9 @@ export const CONSTELLATIONS: Constellation[] = [
     altNames: ['The Water Snake', 'The Sea Serpent'],
     stars: [280, 281, 282, 283, 284, 285, 286, 287],
     lines: [
-      { from: 286, to: 281 }, { from: 281, to: 280 }, { from: 280, to: 282 },
-      { from: 282, to: 284 }, { from: 284, to: 283 }, { from: 283, to: 285 },
+      // Snake body west→east (head to tail): ε → ζ → α(Alphard) → ν → ξ → β → γ → π
+      { from: 286, to: 287 }, { from: 287, to: 280 }, { from: 280, to: 284 },
+      { from: 284, to: 283 }, { from: 283, to: 281 }, { from: 281, to: 282 }, { from: 282, to: 285 },
     ],
     centerRa: 10.5, centerDec: -18.0,
     difficulty: 3,
