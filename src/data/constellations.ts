@@ -5,7 +5,7 @@ export const CONSTELLATIONS: Constellation[] = [
     id: 'ursa_major',
     iauAbbr: 'UMa',
     name: 'Ursa Major',
-    altNames: ['Big Dipper', 'Great Bear', 'Plow'],
+    altNames: ['Great Bear'],
     stars: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     lines: [
       { from: 1, to: 2 }, { from: 2, to: 3 }, { from: 3, to: 4 },

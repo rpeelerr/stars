@@ -35,6 +35,15 @@ export interface Constellation {
   difficulty: 1 | 2 | 3       // 1 = easy, 3 = advanced
 }
 
+export interface Asterism {
+  id: string
+  name: string
+  altNames: string[]
+  constellationId: string      // parent constellation
+  stars: number[]              // star ids in this asterism
+  lines: ConstellationLine[]   // lines to draw for the asterism
+}
+
 export type MessageRole = 'user' | 'assistant'
 
 export interface ChatMessage {
@@ -53,6 +62,8 @@ export interface AppState {
   exploredConstellations: string[]           // ids where chat has occurred
   unlockedConstellations: string[]           // ids with visible lines/art on map
   highlightedConstellations: string[]        // ids mentioned in latest AI message
+  highlightedAsterisms: string[]             // asterism ids mentioned in latest AI message
+  highlightedStars: number[]                 // individual star ids mentioned in latest AI message
   messages: ChatMessage[]
   isStreaming: boolean
   userFamiliarityLevel: FamiliarityLevel
@@ -70,4 +81,4 @@ export type AppAction =
   | { type: 'SET_STREAMING'; payload: boolean }
   | { type: 'SET_FAMILIARITY'; payload: FamiliarityLevel }
   | { type: 'INCREMENT_ENGAGEMENT'; payload: string }
-  | { type: 'SET_HIGHLIGHTED'; payload: string[] }
+  | { type: 'SET_HIGHLIGHTED'; payload: { constellations: string[]; asterisms: string[]; stars: number[] } }

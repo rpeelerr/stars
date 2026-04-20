@@ -44,7 +44,7 @@ export function useChat() {
     }
     dispatch({ type: 'ADD_MESSAGE', payload: assistantMsg })
     dispatch({ type: 'SET_STREAMING', payload: true })
-    dispatch({ type: 'SET_HIGHLIGHTED', payload: [] })
+    dispatch({ type: 'SET_HIGHLIGHTED', payload: { constellations: [], asterisms: [], stars: [] } })
 
     // Build messages array from current state (excluding the empty assistant placeholder)
     const historyMessages = state.messages
@@ -121,7 +121,7 @@ export function useChat() {
       if (paragraphs.length <= 1) {
         // Single paragraph — keep the streamed message as-is
         const mentioned = parseConstellationMentions(accumulatedContent)
-        if (mentioned.length > 0) {
+        if (mentioned.constellations.length > 0 || mentioned.asterisms.length > 0 || mentioned.stars.length > 0) {
           dispatch({ type: 'SET_HIGHLIGHTED', payload: mentioned })
         }
       } else {
@@ -141,7 +141,7 @@ export function useChat() {
         }
 
         const mentioned = parseConstellationMentions(accumulatedContent)
-        if (mentioned.length > 0) {
+        if (mentioned.constellations.length > 0 || mentioned.asterisms.length > 0 || mentioned.stars.length > 0) {
           dispatch({ type: 'SET_HIGHLIGHTED', payload: mentioned })
         }
       }

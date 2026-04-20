@@ -1,9 +1,11 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { CONSTELLATIONS } from '../../data/constellations'
+import { ASTERISMS } from '../../data/asterisms'
 import { STARS, BACKGROUND_STARS, STARS_BY_ID } from '../../data/stars'
 import { projectStar, starRadius } from '../../hooks/useSkyMap'
 import { StarField } from './StarField'
 import { ConstellationLines } from './ConstellationLines'
+import { AsterismLines } from './AsterismLines'
 import { ConstellationLabel } from './ConstellationLabel'
 import { ConstellationHitArea } from './ConstellationHitArea'
 import { ConstellationArt } from './ConstellationArt'
@@ -14,6 +16,8 @@ interface SkyMapProps {
   unlockedConstellations: string[]
   exploredConstellations: string[]
   highlightedConstellations: string[]
+  highlightedAsterisms: string[]
+  highlightedStars: number[]
   onConstellationSelect: (id: string) => void
 }
 
@@ -22,6 +26,8 @@ export function SkyMap({
   unlockedConstellations,
   exploredConstellations,
   highlightedConstellations,
+  highlightedAsterisms,
+  highlightedStars,
   onConstellationSelect,
 }: SkyMapProps) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -197,7 +203,7 @@ export function SkyMap({
             />
           ))}
 
-          {/* Pulsing halos on stars of chat-mentioned constellations */}
+          {/* Pulsing halos on stars of chat-mentioned constellations (gold) */}
           {CONSTELLATIONS
             .filter(c => highlightedConstellations.includes(c.id) && selectedConstellation !== c.id)
             .flatMap(c => c.stars.map(id => starsById[id]).filter((s): s is Star => !!(s?.x && s?.y)))
@@ -215,6 +221,66 @@ export function SkyMap({
                   transformOrigin: 'center',
                   animation: 'star-halo 2s ease-out infinite',
                   animationDelay: `${(star.id % 8) * 0.25}s`,
+                  pointerEvents: 'none',
+                }}
+              />
+            ))
+          }
+
+          {/* Asterism lines (blue) — rendered over constellation lines */}
+          {ASTERISMS
+            .filter(a => highlightedAsterisms.includes(a.id))
+            .map(asterism => (
+              <AsterismLines
+                key={asterism.id}
+                asterism={asterism}
+                starsById={starsById}
+              />
+            ))
+          }
+
+          {/* Pulsing halos on stars of chat-mentioned asterisms (blue) */}
+          {ASTERISMS
+            .filter(a => highlightedAsterisms.includes(a.id))
+            .flatMap(a => a.stars.map(id => starsById[id]).filter((s): s is Star => !!(s?.x && s?.y)))
+            .map(star => (
+              <circle
+                key={`asterism-halo-${star.id}`}
+                cx={star.x}
+                cy={star.y}
+                r={starRadius(star.mag) + 3}
+                fill="rgba(126, 200, 227, 0.15)"
+                stroke="rgba(126, 200, 227, 0.8)"
+                strokeWidth={1.2}
+                style={{
+                  transformBox: 'fill-box',
+                  transformOrigin: 'center',
+                  animation: 'star-halo 2s ease-out infinite',
+                  animationDelay: `${(star.id % 8) * 0.25}s`,
+                  pointerEvents: 'none',
+                }}
+              />
+            ))
+          }
+
+          {/* Pulsing halos on individually mentioned stars (white) */}
+          {highlightedStars
+            .map(id => starsById[id])
+            .filter((s): s is Star => !!(s?.x && s?.y))
+            .map(star => (
+              <circle
+                key={`star-halo-${star.id}`}
+                cx={star.x}
+                cy={star.y}
+                r={starRadius(star.mag) + 5}
+                fill="rgba(220, 240, 255, 0.20)"
+                stroke="rgba(220, 240, 255, 0.95)"
+                strokeWidth={1.5}
+                style={{
+                  transformBox: 'fill-box',
+                  transformOrigin: 'center',
+                  animation: 'star-halo 1.5s ease-out infinite',
+                  animationDelay: `${(star.id % 4) * 0.2}s`,
                   pointerEvents: 'none',
                 }}
               />

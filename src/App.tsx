@@ -35,6 +35,8 @@ function StarApp() {
           unlockedConstellations={unlockedConstellations}
           exploredConstellations={exploredConstellations}
           highlightedConstellations={state.highlightedConstellations}
+          highlightedAsterisms={state.highlightedAsterisms}
+          highlightedStars={state.highlightedStars}
           onConstellationSelect={selectConstellation}
         />
         <ProgressIndicator exploredCount={exploredConstellations.length} />
