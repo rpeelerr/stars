@@ -14,6 +14,7 @@ export const CONSTELLATIONS: Constellation[] = [
     ],
     centerRa: 11.5, centerDec: 55.0,
     difficulty: 1,
+    funFact: 'The Big Dipper is not actually a constellation — it\'s an asterism inside Ursa Major! Its two "pointer stars" always aim directly at Polaris, the North Star.',
     mythology: [
       {
         culture: 'Greek',
@@ -56,6 +57,7 @@ export const CONSTELLATIONS: Constellation[] = [
     ],
     centerRa: 15.0, centerDec: 78.0,
     difficulty: 1,
+    funFact: 'Polaris, at the tip of the Little Dipper\'s handle, stays almost perfectly still in the sky while every other star circles around it — it\'s within 1° of the true north celestial pole!',
     mythology: [
       {
         culture: 'Greek',
@@ -99,6 +101,7 @@ export const CONSTELLATIONS: Constellation[] = [
     ],
     centerRa: 10.5, centerDec: 18.0,
     difficulty: 1,
+    funFact: 'Leo\'s brightest star, Regulus, sits almost exactly on the ecliptic — the Sun\'s path across the sky. That means the Moon regularly passes right in front of it, briefly hiding it from view!',
     mythology: [
       {
         culture: 'Greek / Roman',
@@ -133,6 +136,7 @@ export const CONSTELLATIONS: Constellation[] = [
     ],
     centerRa: 1.0, centerDec: 60.0,
     difficulty: 1,
+    funFact: 'Cassiopeia circles the North Star without ever setting for most of North America — you can spot its bold "W" or "M" shape every single clear night of the year!',
     mythology: [
       {
         culture: 'Greek',
@@ -172,6 +176,7 @@ export const CONSTELLATIONS: Constellation[] = [
     ],
     centerRa: 7.1, centerDec: 23.0,
     difficulty: 1,
+    funFact: 'Castor looks like one star to the naked eye, but is actually six stars — three pairs of stars all orbiting each other in one giant cosmic dance!',
     mythology: [
       {
         culture: 'Greek / Roman',
@@ -212,6 +217,7 @@ export const CONSTELLATIONS: Constellation[] = [
     ],
     centerRa: 5.5, centerDec: 0.0,
     difficulty: 1,
+    funFact: 'Betelgeuse, Orion\'s bright red shoulder star, is so enormous that if it replaced our Sun, it would swallow Mercury, Venus, Earth, Mars, and Jupiter whole!',
     mythology: [
       {
         culture: 'Greek',
@@ -252,6 +258,7 @@ export const CONSTELLATIONS: Constellation[] = [
     ],
     centerRa: 6.9, centerDec: -22.0,
     difficulty: 1,
+    funFact: 'Sirius is the brightest star in the entire night sky — nearly twice as bright as the second brightest! Ancient Egyptians used its yearly return at dawn to predict when the Nile River would flood.',
     mythology: [
       {
         culture: 'Greek',
@@ -286,6 +293,7 @@ export const CONSTELLATIONS: Constellation[] = [
     ],
     centerRa: 7.6, centerDec: 6.0,
     difficulty: 1,
+    funFact: 'Procyon is only 11.4 light-years from Earth — one of our closest stellar neighbors! Its name means "before the dog" in Greek, because it rises just before the Dog Star Sirius.',
     mythology: [
       {
         culture: 'Greek',
@@ -316,6 +324,7 @@ export const CONSTELLATIONS: Constellation[] = [
     ],
     centerRa: 8.7, centerDec: 19.0,
     difficulty: 2,
+    funFact: 'Cancer contains the Beehive Cluster — over 1,000 stars packed together, visible to the naked eye as a faint glowing smudge. Galileo was the first person to see it as individual stars through a telescope!',
     mythology: [
       {
         culture: 'Greek',
@@ -345,6 +354,7 @@ export const CONSTELLATIONS: Constellation[] = [
     ],
     centerRa: 13.0, centerDec: -2.0,
     difficulty: 2,
+    funFact: 'Virgo\'s bright star Spica helped the ancient Greek astronomer Hipparchus discover that Earth slowly wobbles on its axis — a cycle that takes 26,000 years to complete, called the "precession of the equinoxes."',
     mythology: [
       {
         culture: 'Greek',
@@ -386,6 +396,7 @@ export const CONSTELLATIONS: Constellation[] = [
     ],
     centerRa: 14.7, centerDec: 30.0,
     difficulty: 2,
+    funFact: 'Follow the arc of the Big Dipper\'s handle outward and you\'ll "Arc to Arcturus" — Boötes\' glowing orange star. It\'s the brightest star in the northern half of the sky and one of our closest stellar neighbors!',
     mythology: [
       {
         culture: 'Greek',
@@ -421,6 +432,7 @@ export const CONSTELLATIONS: Constellation[] = [
     ],
     centerRa: 12.4, centerDec: -20.0,
     difficulty: 2,
+    funFact: 'Corvus, the Crow, sits right on the back of Hydra the Water Snake — together with Crater (the Cup), they form one connected myth across the spring sky, three constellations telling one story!',
     mythology: [
       {
         culture: 'Greek',
@@ -451,6 +463,7 @@ export const CONSTELLATIONS: Constellation[] = [
     ],
     centerRa: 5.5, centerDec: 39.5,
     difficulty: 2,
+    funFact: 'Capella, Auriga\'s dazzling star, is actually four stars — two pairs of binary stars orbiting each other. Together they shine over 70 times brighter than our Sun!',
     mythology: [
       {
         culture: 'Greek',
@@ -489,6 +502,7 @@ export const CONSTELLATIONS: Constellation[] = [
     ],
     centerRa: 3.5, centerDec: 47.0,
     difficulty: 2,
+    funFact: 'Every August, Earth passes through debris from a comet and the sky rains shooting stars — up to 100 per hour — all appearing to shoot outward from Perseus. It\'s called the Perseid meteor shower!',
     mythology: [
       {
         culture: 'Greek',
@@ -520,6 +534,7 @@ export const CONSTELLATIONS: Constellation[] = [
     ],
     centerRa: 10.5, centerDec: -18.0,
     difficulty: 3,
+    funFact: 'Hydra is the largest constellation in the entire sky, stretching 100° from head to tail — so enormous it takes 7 hours to fully rise above the horizon. Corvus and Crater hitch a ride on its back!',
     mythology: [
       {
         culture: 'Greek',

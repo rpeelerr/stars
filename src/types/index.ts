@@ -33,6 +33,7 @@ export interface Constellation {
   centerDec: number
   mythology: Mythology[]
   difficulty: 1 | 2 | 3       // 1 = easy, 3 = advanced
+  funFact: string              // Short fun fact shown after exploring
 }
 
 export interface Asterism {

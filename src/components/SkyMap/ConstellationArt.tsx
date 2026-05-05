@@ -48,16 +48,17 @@ export function ConstellationArt({
     : 0
   const sizeScale = constellation.id === 'hydra' ? 0.675 : 1
   const displaySize = size * sizeScale
+  const offsetY = constellation.id === 'orion' ? -20 : 0
 
   const transform = rotationDeg !== 0
-    ? `rotate(${rotationDeg}, ${cx}, ${cy})`
+    ? `rotate(${rotationDeg}, ${cx}, ${cy + offsetY})`
     : undefined
 
   return (
     <image
       href={`/constellations/${filename}.png`}
       x={cx - displaySize / 2}
-      y={cy - displaySize / 2}
+      y={cy - displaySize / 2 + offsetY}
       width={displaySize}
       height={displaySize}
       opacity={opacity}

@@ -1,0 +1,225 @@
+% ============================================================
+%  Stars App – System Architecture Diagram
+%  Audience: general / non-technical
+%  Compile with: pdflatex architecture_diagram.tex
+%        or paste into https://overleaf.com (new project)
+% ============================================================
+\documentclass[tikz, border=24pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{
+  shapes.rounded,
+  arrows.meta,
+  fit,
+  backgrounds,
+  positioning
+}
+
+% ── Palette ────────────────────────────────────────────────
+\definecolor{bg}{HTML}{071525}          % deep space
+\definecolor{panelFront}{HTML}{0D2340}  % browser panel
+\definecolor{panelBack}{HTML}{0A1C35}   % server panel
+\definecolor{panelAI}{HTML}{0E2A1A}     % AI panel
+\definecolor{panelData}{HTML}{1A1A3A}   % data panel
+\definecolor{boxFront}{HTML}{163566}    % browser components
+\definecolor{boxBack}{HTML}{112952}     % server components
+\definecolor{boxAI}{HTML}{14422A}       % AI component
+\definecolor{boxData}{HTML}{26266A}     % data component
+\definecolor{boxUser}{HTML}{2A3060}     % user box
+\definecolor{gold}{HTML}{F5C518}
+\definecolor{ltblue}{HTML}{9BC8E8}
+\definecolor{whitetext}{HTML}{E6F3FF}
+
+% ── Reusable styles ────────────────────────────────────────
+\tikzset{
+  % Generic component box
+  box/.style={
+    rectangle, rounded corners=5pt,
+    draw=#1!60!white, fill=#1,
+    text=whitetext, font=\sffamily\small,
+    minimum width=3.2cm, minimum height=0.9cm,
+    align=center, inner sep=5pt
+  },
+  % Section background
+  panel/.style={
+    rectangle, rounded corners=9pt,
+    draw=#1!40!white, fill=#1,
+    inner sep=12pt
+  },
+  % Section title
+  title/.style={font=\sffamily\bfseries\small, text=gold},
+  % Arrow: one direction
+  fw/.style={-Stealth, thick, color=ltblue,
+             shorten >=3pt, shorten <=3pt},
+  % Arrow: both directions
+  bw/.style={Stealth-Stealth, thick, color=gold!70,
+             shorten >=3pt, shorten <=3pt},
+  % Small annotation label
+  lbl/.style={font=\sffamily\scriptsize, text=whitetext!75,
+              fill=bg, inner sep=2pt}
+}
+
+\begin{document}
+\pagecolor{bg}
+\begin{tikzpicture}[node distance=0.6cm and 1.0cm]
+
+% ══════════════════════════════════════════════════════════
+% 1. STUDENT (top-center)
+% ══════════════════════════════════════════════════════════
+\node[box=boxUser, minimum width=4.0cm, minimum height=1.1cm] (user) {
+  \textbf{Student / Learner}\\[2pt]
+  \scriptsize taps stars $\cdot$ asks questions $\cdot$ takes quiz
+};
+
+% ══════════════════════════════════════════════════════════
+% 2. BROWSER LAYER  (left = sky map,  right = chat)
+% ══════════════════════════════════════════════════════════
+
+% -- Sky Map column --
+\node[box=boxFront, below=2.0cm of user, xshift=-3.6cm] (skymap) {
+  \textbf{Interactive Sky Map}\\[2pt]\scriptsize animated stars \& constellations
+};
+\node[box=boxFront, below=0.55cm of skymap] (art) {
+  Constellation Art\\[2pt]\scriptsize cultural drawings overlay
+};
+\node[box=boxFront, below=0.55cm of art] (glow) {
+  Star Glow Effect\\[2pt]\scriptsize lights up when AI mentions a star
+};
+
+% -- App State (center) --
+\node[box=boxFront, minimum width=3.0cm,
+      below=2.0cm of user] (state) {
+  \textbf{App Memory}\\[2pt]\scriptsize tracks explored constellations\\[1pt]\scriptsize \& full chat history
+};
+
+% -- Tutor / Chat column --
+\node[box=boxFront, below=2.0cm of user, xshift=3.6cm] (chat) {
+  \textbf{AI Tutor Chat}\\[2pt]\scriptsize stories stream in word-by-word
+};
+\node[box=boxFront, below=0.55cm of chat] (quiz) {
+  Quiz Modal\\[2pt]\scriptsize 5-question knowledge check
+};
+\node[box=boxFront, below=0.55cm of quiz] (prog) {
+  Progress Indicator\\[2pt]\scriptsize counts constellations learned
+};
+
+% -- Browser panel background --
+\begin{scope}[on background layer]
+  \node[panel=panelFront,
+        fit=(skymap)(art)(glow)(state)(chat)(quiz)(prog),
+        label={[title]above:Your Browser — what you see and interact with}
+       ] (browser) {};
+\end{scope}
+
+% ══════════════════════════════════════════════════════════
+% 3. WEB SERVER LAYER
+% ══════════════════════════════════════════════════════════
+\node[box=boxBack, minimum width=3.8cm,
+      below=3.2cm of state] (server) {
+  \textbf{Web Server}\\[2pt]\scriptsize receives questions from the browser,\\[1pt]\scriptsize forwards them to the AI
+};
+\node[box=boxBack, minimum width=3.0cm, right=1.2cm of server] (sysprompt) {
+  Tutor Personality\\[2pt]\scriptsize rules that make the AI act\\[1pt]\scriptsize like a storytelling guide
+};
+
+\begin{scope}[on background layer]
+  \node[panel=panelBack,
+        fit=(server)(sysprompt),
+        label={[title]above:Behind the Scenes — runs on your computer}
+       ] (backpanel) {};
+\end{scope}
+
+% ══════════════════════════════════════════════════════════
+% 4. AI LAYER  (Google Gemini)
+% ══════════════════════════════════════════════════════════
+\node[box=boxAI, minimum width=5.0cm, minimum height=1.1cm,
+      below=2.8cm of server] (gemini) {
+  \textbf{Google Gemini AI}\\[2pt]
+  \scriptsize creates mythology stories, cultural history,\\[1pt]
+  \scriptsize and quiz questions on the fly
+};
+
+\begin{scope}[on background layer]
+  \node[panel=panelAI,
+        fit=(gemini),
+        label={[title]above:Google Cloud — AI brain (accessed over the internet)}
+       ] (aipanel) {};
+\end{scope}
+
+% ══════════════════════════════════════════════════════════
+% 5. BUILT-IN DATA  (right side)
+% ══════════════════════════════════════════════════════════
+\node[box=boxData, minimum width=3.4cm, minimum height=2.0cm,
+      right=2.6cm of server, yshift=-3.5cm] (data) {
+  \textbf{Star \& Myth Database}\\[2pt]
+  \scriptsize real star coordinates,\\[1pt]
+  \scriptsize constellation boundaries,\\[1pt]
+  \scriptsize cultural artwork
+};
+
+\begin{scope}[on background layer]
+  \node[panel=panelData,
+        fit=(data),
+        label={[title]above:Built-In Data}
+       ] (datapanel) {};
+\end{scope}
+
+% ══════════════════════════════════════════════════════════
+% ARROWS
+% ══════════════════════════════════════════════════════════
+
+% Student ↔ Sky Map
+\draw[bw] (user.south) -- ++(0,-0.6) -| (skymap.north)
+  node[pos=0.25, lbl, above] {clicks stars};
+
+% Student ↔ Chat
+\draw[bw] (user.south) -- ++(0,-0.6) -| (chat.north)
+  node[pos=0.25, lbl, above] {types \& reads};
+
+% Sky Map ↔ App Memory
+\draw[bw] (skymap.east) -- (state.west)
+  node[midway, lbl, above] {which star selected};
+
+% Chat ↔ App Memory
+\draw[bw] (chat.west) -- (state.east)
+  node[midway, lbl, above] {conversation};
+
+% App Memory → Star Glow
+\draw[fw] (state.west) -- ++(-0.5,0) |- (glow.east)
+  node[pos=0.7, lbl, right] {highlight};
+
+% App Memory → Quiz
+\draw[fw] (state.east) -- ++(0.5,0) |- (quiz.west)
+  node[pos=0.7, lbl, left] {trigger};
+
+% App Memory → Progress
+\draw[fw] (state.east) -- ++(0.5,0) |- (prog.west)
+  node[pos=0.7, lbl, left] {count};
+
+% App Memory → Server (question sent)
+\draw[fw] (state.south) -- (server.north)
+  node[midway, lbl, right] {question + history};
+
+% Server → App Memory (answer streams back)
+\draw[fw] ([xshift=-5pt]server.north) -- ([xshift=-5pt]state.south)
+  node[midway, lbl, left] {answer streams back};
+
+% Tutor Personality → Server
+\draw[fw] (sysprompt.west) -- (server.east)
+  node[midway, lbl, above] {personality rules};
+
+% Server ↔ Gemini
+\draw[bw] (server.south) -- (gemini.north)
+  node[midway, lbl, right] {question / story};
+
+% Data → Sky Map
+\draw[fw] (data.north) -- ++(0,1.2) -| (skymap.south)
+  node[pos=0.35, lbl, above] {star positions \& art};
+
+% ══════════════════════════════════════════════════════════
+% MAIN TITLE
+% ══════════════════════════════════════════════════════════
+\node[above=1.0cm of user,
+      font=\sffamily\LARGE\bfseries, text=gold] {Stars — How the App Works};
+
+\end{tikzpicture}
+\end{document}

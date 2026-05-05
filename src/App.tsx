@@ -39,7 +39,7 @@ function StarApp() {
           highlightedStars={state.highlightedStars}
           onConstellationSelect={selectConstellation}
         />
-        <ProgressIndicator exploredCount={exploredConstellations.length} />
+        <ProgressIndicator exploredConstellations={exploredConstellations} />
       </div>
 
       {/* Tutor panel — right sidebar */}
