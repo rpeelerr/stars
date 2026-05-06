@@ -1,0 +1,70 @@
+Stars — AI Constellation Tutor
+================================
+Requirements for Running the Project
+
+--------------------------------------------------
+SYSTEM REQUIREMENTS
+--------------------------------------------------
+
+- Node.js v18 or later
+    Download: https://nodejs.org/
+    Check your version: node --version
+
+- npm (comes bundled with Node.js)
+    Check your version: npm --version
+
+- A Google Gemini API key (free)
+    Get one at: https://aistudio.google.com/app/apikey
+
+--------------------------------------------------
+SETUP & INSTALLATION
+--------------------------------------------------
+
+1. Clone or download the repository, then open a terminal in the project folder.
+
+2. Install dependencies:
+       npm install
+
+3. Create a .env file in the project root:
+       cp .env.example .env
+   Open .env and replace "your_api_key_here" with your Gemini API key.
+
+4. Start the app:
+       npm run dev
+
+5. Open http://localhost:5173 in your browser.
+
+--------------------------------------------------
+WHAT npm install DOWNLOADS
+--------------------------------------------------
+
+Frontend:
+  - react 18              UI framework
+  - react-dom 18          React browser renderer
+  - d3 7                  Sky map rendering / coordinate math
+  - tailwindcss 3         Styling
+  - vite 6                Dev server and bundler
+  - typescript 5          Type checking
+
+Backend (local Express server):
+  - express 4             HTTP server (keeps the API key server-side)
+  - @google/genai 1       Google Gemini AI SDK
+  - dotenv 17             Loads the .env API key
+  - tsx 4                 Runs TypeScript server without compiling first
+  - concurrently 9        Starts frontend and backend together with one command
+
+All packages are installed locally inside the project's node_modules folder.
+Nothing is installed globally on your machine.
+
+--------------------------------------------------
+PORTS USED
+--------------------------------------------------
+
+  Frontend:  http://localhost:5173
+  Backend:   http://localhost:3000
+
+--------------------------------------------------
+TESTED ON
+--------------------------------------------------
+
+  macOS 14+, Node.js v22
